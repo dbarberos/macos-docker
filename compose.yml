@@ -3,7 +3,10 @@ services:
     image: dockurr/macos
     container_name: macos
     environment:
-      VERSION: "13"
+      VERSION: "15"
+      DISK_SIZE: "512G" 
+      RAM_SIZE: "8G" 
+      CPU_CORES: "2"
     devices:
       - /dev/kvm
     cap_add:
@@ -12,4 +15,6 @@ services:
       - 8006:8006
       - 5900:5900/tcp
       - 5900:5900/udp
+    volumes:
+    - //volume1/Homes/dbarberos/macos-storage
     stop_grace_period: 2m
